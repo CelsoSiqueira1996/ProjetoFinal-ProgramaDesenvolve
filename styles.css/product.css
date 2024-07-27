@@ -1,0 +1,125 @@
+.product__page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2em 0em;
+}
+
+.product__page-div {
+    width: 60vw;
+    height: auto;
+    margin: 5vw 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product__page-image {
+    width: 60vw;
+    height: 60vw;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 5vw;
+}
+
+.product__page-text {
+    font-size: 24px;
+    font-family: var(--fonte-secundaria);
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+.product__page-strong {
+    font-size: 28px;
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+}
+
+.product__page-price {
+    font-size: 28px;
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    margin-top: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.btn__add-cart {
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-primaria);
+    cursor: pointer;
+    background-color: #4DABF7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+.btn__add-cart:active {
+   cursor: pointer;
+   transform: translateY(1px);
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 900px) {
+
+    .product__page-container {
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 2em 0em;
+    }
+
+    .product__page-text {
+        font-size: 32px;
+    }
+    
+    .product__page-strong , .product__page-price {
+        font-size: 36px;
+    }
+    
+    .btn__add-cart {
+        font-size: 24px;
+    }
+
+    .product__page-div {
+        width: 40vw;
+        height: auto;
+        margin: 2vw 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .product__page-image {
+        width: 30vw;
+        height: 30vw;
+        border: 1px solid black;
+        border-radius: 12px;
+        padding: 5vw;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+
+    .product__page-div {
+        width: 30vw;
+        height: auto;
+        margin: 2vw 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .product__page-image {
+        width: 25vw;
+        height: 25vw;
+        border: 1px solid black;
+        border-radius: 12px;
+        padding: 5vw;
+    }
+
+}

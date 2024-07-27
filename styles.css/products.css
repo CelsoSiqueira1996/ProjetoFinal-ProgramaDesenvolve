@@ -1,0 +1,244 @@
+.container__titulo-admin {
+    display: block;
+    font-family: "Kaushan Script", cursive;
+    padding-right: 1em;
+    font-size: 24px;
+    color: var(--cor-quaternaria);
+}
+
+.products__crud-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.products__crud-div {
+    margin: 1em;
+}
+
+.products__crud {
+    font-family: var(--fonte-principal);
+}
+
+.formulario-products {
+    display: none;
+    width: 80%;
+    padding: 2em 0 0 2em;
+}
+
+.products__crud-div:has(> #add-product:checked) ~ .adicionar-produtos{
+    display: block;
+}
+
+.products__crud-div:has(> #delete-product:checked) ~ .deletar-produtos{
+    display: block;
+}
+
+.products__crud-div:has(> #update-product:checked) ~ .atualizar-produtos{
+    display: block;
+}
+
+.products__crud-div:has(> #find-product:checked) ~ .procurar-produtos{
+    display: block;
+}
+
+.botao__crud-produtos {
+    padding: 0.5em 1em;
+    margin: 1.5em;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-primaria);
+    cursor: pointer;
+    background-color: #4DABF7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+  
+.botao__crud-produtos:active {
+    cursor: pointer;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product__price {
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    width: 30vw;
+    color: var(--cor-secundaria);
+    padding: 0.75em;
+}
+
+.products__container {
+    margin: 1em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.page__configs {
+    margin: 0em 1em;
+}
+
+.page__configs, .queryParams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.path, .orderBy, .limit {
+    margin: 0.75em;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(32, 32, 32);
+    box-sizing: border-box;
+}
+
+.orderBy, .limit {
+    position: relative;
+    width: auto;
+}
+
+.options__orderBy, .options__limit {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0%;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+}
+
+.options__orderBy > li {
+    text-align: left;
+    text-wrap: nowrap;
+    padding: 0.5em;
+    padding-left: 0.5em;
+}
+
+.options__limit > li {
+    text-align: right;
+    text-wrap: nowrap;
+    padding: 0.5em;
+    padding-right: 1em;
+}
+
+.options__limit:hover > li:hover {
+    cursor: pointer;
+    background-color: var(--cor-quaternaria);
+    color: var(--cor-primaria);
+}
+
+.options__orderBy:hover > li:hover {
+    cursor: pointer;
+    background-color: var(--cor-quaternaria);
+    color: var(--cor-primaria);
+}
+
+.orderBy__text, .limit__text {
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 8px;
+    text-wrap: nowrap;
+}
+
+.orderBy__text:hover, .limit__text:hover {
+    cursor: pointer;
+    color: #a76ddd;
+    border: 1px solid #a76ddd;
+}
+
+.path > a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(136, 136, 136);
+}
+
+.path {
+    text-wrap: balance;
+}
+
+.path > a:hover {
+    color: var(--cor-quaternaria);
+}
+
+.path__line {
+    margin: 0em;
+}
+
+.mensagem__nao-encontrado {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-secundaria);
+}
+
+.pages__number {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+    gap: 0.25em;
+}
+
+.pages__number > button {
+    background-color: var(--cor-primaria);
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    font-family: var(--fonte-secundaria);
+    font-size: 14px;
+    font-weight: bolder;
+    border: none;
+}
+
+.pages__number > button:hover {
+    cursor: pointer;
+    background-color: var(--cor-terciaria);
+}
+
+.pages__number > .page__number-selected {
+    background-color: var(--cor-terciaria);
+    border: 1px solid black;
+}
+
+[disabled="true"] {
+    color: rgb(179, 179, 179);
+}
+
+button[disabled="true"]:hover {
+    background-color: var(--cor-primaria);
+}
+
+@media screen and (min-width: 900px) {
+    .formulario-products {
+        width: 60%;
+        padding: 2em 0 0 2em;
+      }
+
+    .product__price {
+        width: 20vw;
+    }
+
+    .page__configs {
+        margin: 0em 2em;
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
+
+    .product__price {
+        width: 18vw;
+    }
+
+}
+  

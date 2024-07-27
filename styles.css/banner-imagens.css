@@ -1,0 +1,17 @@
+.banner-imagens {
+    display: flex;
+
+}
+
+.banner-ofertas__titulo {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--fonte-principal);
+    text-align: center;
+}
+
+.banner-imagens__imagem {
+    width: 49%;
+    height: auto;
+    margin: 1em 0.5%;
+}

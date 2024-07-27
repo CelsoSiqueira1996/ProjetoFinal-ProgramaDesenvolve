@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br" category="Perfumes e Perfumaria">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../../../assets/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../reset.css">
+    <title>BellaViva | Perfumes e Perfumaria</title>
+    <script src="../../js/products/productPage.js" defer type="module"></script>
+    <script src="../../../js/products/products-filter.js" defer type="module"></script>
+    <script src="../../../js/modal.js" defer type="module"></script>
+    <script src="../../../js/validaCamposFormularioNovoUsuario.js" defer type="module"></script>
+    <script src="../../../js/logar/validaCamposFormularioEntrar.js" defer type="module"></script>
+    <script src="../../../js/logar/desconectarUsuario.js" defer type="module"></script>
+</head>
+<body>
+    <div class="mensagem__feedback-sucesso">
+        <span class="mensagem-sucesso"><img src="../../../assets/check.svg" class="mensagem-sucesso__imagem"></span>
+    </div>
+    <header class="cabecalho">
+        <div class="container">
+            <input type="checkbox" id="menu" class="container__botao">
+            <label for="menu" class="label__menu-hamburguer">
+                <span class="cabecalho__menu-hamburguer container__imagem"></span>
+            </label>
+            <ul class="lista-menu">
+                <li class="lista-menu__titulo">Categorias</li>
+                <li class="lista-menu__item"><a href="./category/Cabelos.html" class="lista-menu__link">Cabelos</a></li>
+                <li class="lista-menu__item"><a href="./category/Perfumes e Perfumaria.html" class="lista-menu__link">Perfumes e Perfumaria</a></li>
+                <li class="lista-menu__item"><a href="./category/Maquiagem.html" class="lista-menu__link">Maquiagem</a></li>
+                <li class="lista-menu__item"><a href="./category/Skincare.html" class="lista-menu__link">Skincare</a></li>
+                <li class="lista-menu__item"><a href="./category/Cuidados Pessoais.html" class="lista-menu__link">Cuidados Pessoais</a></li>
+                <li class="lista-menu__item"><a href="./category/Bem-Estar e Saúde.html" class="lista-menu__link">Bem-Estar e Saúde</a></li>
+            </ul>
+            <img src="../../../assets/Logo.svg" class="container__imagem" alt="Logo da nossa marca">
+            <h1 class="container__titulo">BellaViva</h1>
+        </div>
+        <ul class="opcoes">
+            <li class="opcoes__item opcoes__item-menu">Categorias</li>
+            <li class="opcoes__item"><a href="#" class="opcoes__link">Favoritos</a></li>
+            <li class="opcoes__item"><a href="#" class="opcoes__link">Ajuda</a></li>
+            <ul class="lista-menu">
+                <li class="lista-menu__item"><a href="./category/Cabelos.html" class="lista-menu__link">Cabelos</a></li>
+                <li class="lista-menu__item"><a href="./category/Perfumes e Perfumaria.html" class="lista-menu__link">Perfumes e Perfumaria</a></li>
+                <li class="lista-menu__item"><a href="./category/Maquiagem.html" class="lista-menu__link">Maquiagem</a></li>
+                <li class="lista-menu__item"><a href="./category/Skincare.html" class="lista-menu__link">Skincare</a></li>
+                <li class="lista-menu__item"><a href="./category/Cuidados Pessoais.html" class="lista-menu__link">Cuidados Pessoais</a></li>
+                <li class="lista-menu__item"><a href="./category/Bem-Estar e Saúde.html" class="lista-menu__link">Bem-Estar e Saúde</a></li>
+            </ul>
+        </ul>
+        <div class="container">
+            <a href="#"><img src="../../assets/Favoritos.svg" class="container__imagem imagem__favoritos"></a>
+            <a href="#" class="container__link container__link-compras"><img src="../../assets/Compras.svg" class="container__imagem container__imagem-transparente"><p class="container__texto">Minha sacola</p></a>
+            <a href="#" class="container__link container__link-usuario" id="pagina__inicial"><img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente"><p class="container__texto">Meu perfil</p></a>
+            <a href="#" class="container__link container__link-usuario" id="usuario__logado">
+                <img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente">
+                <p class="container__texto"></p>
+                <ul class="botoes__usuario-logado">
+                    <span class="botao__usuario-logado botao__editar-perfil">Editar Perfil</span>
+                    <span class="botao__usuario-logado botao__sair">Sair</span>
+                    <span class="botao__usuario-logado botao__produtos">Gerenciar Produtos</span>
+                    <span class="botao__usuario-logado botao__usuarios">Gerenciar Usuários</span>
+                </ul> 
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="banner">
+            <h2 class="banner__titulo">Já sabe o que procura?</h2>
+            <p class="banner__texto">Encontre o que você precisa para sua beleza!</p>
+            <div class="barra__pesquisa">
+                <input type="search" class="banner__pesquisa" placeholder="Busque aqui!">
+                <button class="btn__pesquisa"><img src="../../../assets/Pesquisa.svg"></button>
+            </div>
+        </section>
+        <hr class="path__line">
+        <div class="page__configs">
+            <p class="path"></p>
+        </div>
+        <hr class="path__line">
+        <ul class="products__container"></ul>
+        <div class="pages__number"></div>
+        <section class="contato">
+            <div class="contato__container">
+                <h2 class="contato__titulo">Cadastre-se para receber novidades e promoções exclusivas!</h2>
+                <p class="contato__texto">Fique por dentro dos últimos lançamentos, eventos, tendências, moda e outros.</p>
+            </div>
+            <input type="email" class="contato__email" placeholder="Cadastre seu e-mail">
+        </section>
+    </main>
+    <footer class="rodape">
+        <h2 class="rodape__titulo">Desenvolvido por Celso Siqueira</h2>
+        <div class="rodape-contato">
+            <p class="rodape-contato__texto">Me encontre:</p>
+            <a href="https://www.linkedin.com/in/celso-jacinto-de-siqueira-neto-23500a170" class="rodape-contato__link">
+                <img src="../../../assets/rodape/linkedin.svg" class="rodape-contato__imagem">Linkedin</a>
+            <a href="https://github.com/CelsoSiqueira1996" class="rodape-contato__link">
+                <img src="../../../assets/rodape/github.svg" class="rodape-contato__imagem">Github</a>
+        </div>
+    </footer>
+
+    <div class="modal">
+        <section class="modal__conteudo__formulario">
+            <span class="fechar">&times;</span>
+            <form class="formulario formulario__entrar">
+                <fieldset class="formulario__campo">
+                    <label class="formulario__etiqueta" for="cpf">CPF</label>
+                    <input type="text" id="cpf__logar" class="campo__escrita" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="formulario__etiqueta" for="senha">Senha</label>
+                    <input type="password" id="senha__logar" class="campo__escrita" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <p class="formulario__texto formulario__texto-inicial">Novo por aqui? <strong class="formulario__texto__novo-usuario">Registre-se.</strong></p>
+                <fieldset class="formulario__campo__botao">
+                    <input type="submit" class="botao__logar" value="Entrar">
+                    <span class="mensagem-erro mensagem-erro__logar"></span>
+                </fieldset>                    
+            </form>
+            <form class="formulario formulario__registrar">
+                <fieldset class="formulario__campo">
+                    <label for="nome" class="formulario__etiqueta">Nome completo</label>
+                    <input type="text" id="nome" class="campo__escrita" minlength="3" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset> 
+                <fieldset class="formulario__campo">
+                    <label for="email" class="formulario__etiqueta">E-mail</label>
+                    <input type="email" id="email" class="campo__escrita" minlength="3" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="formulario__etiqueta" for="cpf">CPF</label>
+                    <input type="text" id="cpf" class="campo__escrita" minlength="11" maxlength="14" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="formulario__etiqueta" for="data-nascimento">Data de nascimento</label>
+                    <input type="date" id="data-nascimento" class="campo__escrita" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="formulario__etiqueta" for="senha">Senha</label>
+                    <input type="password" id="senha" class="campo__escrita" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,20}" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <fieldset class="formulario__campo campo__confirmar-senha">
+                    <label class="formulario__etiqueta" for="confirmar-senha">Confirmar senha</label>
+                    <input type="password" id="confirmar-senha" class="campo__escrita" required>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
+                <p class="formulario__texto formulario__texto-secundario">Já possui login? <strong class="formulario__texto__login">Clique aqui!</strong></strong></p>
+                <fieldset class="formulario__campo__botao">
+                    <input type="submit" class="botao__cadastrar-usuario" value="Cadastrar">
+                </fieldset>
+            </form>
+        </section>
+    </div>
+    
+</body>
+</html>

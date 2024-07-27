@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url("./styles.css/header.css");
+@import url("./styles.css/banner.css");
+@import url("./styles.css/carrossel-marcas.css");
+@import url("./styles.css/contato.css");
+@import url("./styles.css/carrossel-lancamentos.css");
+@import url("./styles.css/footer.css");
+@import url("./styles.css/banner-imagens.css");
+@import url("./styles.css/modal.css");
+@import url("./styles.css/products.css");
+@import url("./styles.css/product.css");
+
+
+:root {
+    --cor-primaria: #FAF3F0;
+    --cor-secundaria: black ;
+    --cor-terciaria: #FFCACC;
+    --cor-quaternaria: #DBC4F0;
+    --fonte-principal: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+    --swiper-navigation-size: 1em;
+}
+
+body {  
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
