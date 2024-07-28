@@ -7,8 +7,8 @@ const querySalesCount = "limit=15&ordernation=salesCount:-1";
 const queryNewReleases = "limit=15";
 
 try {
-    await searchProducts.searchAllProducts(querySalesCount, swiperNewReleases);
-    await searchProducts.searchAllProducts(queryNewReleases, swiperBestSellers);
+    await searchProducts.searchAllProducts(queryNewReleases, swiperNewReleases);
+    await searchProducts.searchAllProducts(querySalesCount, swiperBestSellers);
     swiper();
 } catch(error) {
     alert(error);
