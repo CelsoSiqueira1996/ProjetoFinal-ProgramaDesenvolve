@@ -7,7 +7,7 @@ const authRoutes = express.Router();
 
 authRoutes
     .post('/auth/login', AuthController.loginUser)
-    .post('/auth/logout/id/:id', authenticated, permission('auth'), AuthController.logoutUser)
+    .post('/auth/logout', authenticated, AuthController.logoutUser)
     .get('/auth/tokens', authenticated, permission('auth'), AuthController.getTokens)
     .delete('/auth/tokens', authenticated, permission('auth'), AuthController.deleteExperidTokens);
 

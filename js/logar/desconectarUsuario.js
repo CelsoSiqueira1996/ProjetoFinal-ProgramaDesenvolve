@@ -24,15 +24,17 @@ btnUsuarioLogado.addEventListener("blur", () => {
 
 btnSair.addEventListener("click", async () => {
     try{
-        await authLogout();
-        btnUsuarioLogado.querySelector("p").textContent = "";
-        esconderElementoLog(btnUsuarioLogado);
-        aparecerElementoLog(btnUsuario);
-        sessionStorage.clear();
-        if(window.location.pathname == '/pages/products/admin.html') location.pathname = "index.html";
-        gerarMensagemSucesso("sair");
+        await disconnetUser();
     } catch(error) {
         alert(error);
     }
 });
 
+export default async function disconnetUser() {
+    await authLogout();
+    btnUsuarioLogado.querySelector("p").textContent = "";
+    esconderElementoLog(btnUsuarioLogado);
+    aparecerElementoLog(btnUsuario);
+    sessionStorage.clear();
+    location.pathname = "index.html";
+}

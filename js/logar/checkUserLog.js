@@ -7,9 +7,9 @@ btnProdutos.addEventListener("click", () => {
     window.location = location.protocol + "//" + location.host + '/pages/products/admin.html';
 });
 
-// btnUsuarios.addEventListener("click", () => {
-//     window.location = location.protocol + "//" + location.host + '/pages/products/admin.html';
-// });
+btnUsuarios.addEventListener("click", () => {
+     window.location = location.protocol + "//" + location.host + '/pages/users/admin.html';
+});
 
 function checkUserLog() {
     if(sessionStorage.getItem("loginUser")) {

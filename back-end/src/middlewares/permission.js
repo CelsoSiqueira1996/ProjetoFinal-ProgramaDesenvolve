@@ -19,7 +19,7 @@ function permission(pathOrigin) {
                 next();
             } else if(pathOrigin == 'users' && (permissionLevel == 'admin' || user._id == req.params.id)) {
                 next()
-            } else if(pathOrigin == 'auth' && (permissionLevel == 'admin' || user._id == req.params.id )) {
+            } else if(pathOrigin == 'auth' && permissionLevel == 'admin') {
                 next();
             } else {
                 throw new PermissionLevelError();

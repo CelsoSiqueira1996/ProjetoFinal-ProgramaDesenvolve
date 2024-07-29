@@ -64,8 +64,14 @@ export function processedQuery(limitValue, orderByValue, pageValue) {
     }
     const query = queryFromPath(path);
 
-    if(limitValue) query.limit = limitValue;
-    if(orderByValue) query.ordernation = ordernation;
+    if(limitValue) {
+        query.limit = limitValue;
+        delete query.page;
+    }
+    if(orderByValue) {
+        query.ordernation = ordernation;
+        delete query.page;
+    }
     if(pageValue) query.page = pageValue;
 
     const queryString = Object.keys(query).reduce((result, key) => {

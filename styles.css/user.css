@@ -1,0 +1,122 @@
+.container__titulo-admin {
+    display: block;
+    font-family: "Kaushan Script", cursive;
+    padding-right: 1em;
+    font-size: 24px;
+    color: var(--cor-quaternaria);
+}
+
+.user__crud-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.user__crud-div {
+    margin: 1em;
+}
+
+.user__crud {
+    font-family: var(--fonte-principal);
+}
+
+.formulario-user {
+    display: none;
+    width: 80%;
+    padding: 2em 0 0 2em;
+}
+
+.user__crud-div:has(> #delete-user:checked) ~ .deletar-usuario{
+    display: block;
+}
+
+.user__crud-div:has(> #update-user:checked) ~ .atualizar-usuario{
+    display: block;
+}
+
+.user__crud-div:has(> #find-user:checked) ~ .procurar-usuario{
+    display: block;
+}
+
+.botao__crud-usuario {
+    padding: 0.5em 1em;
+    margin: 1.5em;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-primaria);
+    cursor: pointer;
+    background-color: #4DABF7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+  
+.botao__crud-usuario:active {
+    cursor: pointer;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user__container {
+    margin: 1em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.page__configs {
+    margin: 0em 1em;
+}
+
+.page__configs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.path {
+    margin: 0.75em;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(32, 32, 32);
+    box-sizing: border-box;
+}
+
+.path > a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(136, 136, 136);
+}
+
+.path {
+    text-wrap: balance;
+}
+
+.path > a:hover {
+    color: var(--cor-quaternaria);
+}
+
+.path__line {
+    margin: 0em;
+}
+
+.mensagem__nao-encontrado {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-secundaria);
+}
+
+
+@media screen and (min-width: 900px) {
+    .formulario-user {
+        width: 60%;
+        padding: 2em 0 0 2em;
+      }
+
+}

@@ -1,4 +1,3 @@
-import decodeTokenPayload from "../auth/decodeToken.js";
 import getAccessToken from "../auth/getAccessToken.js";
 
 async function login(dto) {
@@ -15,9 +14,9 @@ async function login(dto) {
     return convertedConnection;
 }
 
-async function logout(id, dto) {
+async function logout(dto) {
     const accessToken = getAccessToken();
-    const connection = await fetch(`http://localhost:3000/auth/logout/id/${id}`, {
+    const connection = await fetch(`http://localhost:3000/auth/logout`, {
         method: "POST",
         headers: {"Content-type": "application/json", "authorization": accessToken},
         body: JSON.stringify(dto)

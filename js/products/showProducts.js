@@ -19,6 +19,9 @@ export default function showProducts(productsList, pagesNumber, pageNumber) {
         list.appendChild(buildCard(product.name, product.description, product.urlImage, product.price, product._id));
     });
     if(pagesNumber) {
+        pagesNumber = parseInt(pagesNumber);
+        pageNumber = parseInt(pageNumber);
+        pageNumber = (pageNumber > pagesNumber)? pagesNumber : pageNumber;
         buildPagesNumber(pagesNumber, pageNumber);
         queryPagesNumber(pageNumber);
     }
@@ -44,8 +47,6 @@ function buildCard(name, description, urlImage, price, id) {
 }
 
 function buildPagesNumber(pagesNumber, pageNumber) {
-    pagesNumber = parseInt(pagesNumber);
-    pageNumber = parseInt(pageNumber);
     while(pages.firstChild) {
         pages.removeChild(pages.firstChild);
     }
@@ -56,7 +57,9 @@ function buildPagesNumber(pagesNumber, pageNumber) {
         buttonStart.setAttribute("disabled", "true");
     }
     pages.append(buttonStart);
-    for(let i = 1; i <= pagesNumber; i++) {
+    let i = ((pagesNumber - pageNumber) >= 5)? pageNumber : ((pagesNumber - 5) <= 1)? 1 : pagesNumber - 5;
+    debugger
+    for(i; (i <= (5 + pageNumber) && i <= pagesNumber); i++) {
         const buttonPageNumber = document.createElement("button");
         buttonPageNumber.setAttribute("id", `${i}`);
         if(i == pageNumber) {

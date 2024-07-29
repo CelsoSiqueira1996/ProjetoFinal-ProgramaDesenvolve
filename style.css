@@ -10,10 +10,11 @@
 @import url("./styles.css/modal.css");
 @import url("./styles.css/products.css");
 @import url("./styles.css/product.css");
+@import url("./styles.css/user.css");
 
 
 :root {
-    --cor-primaria: #FAF3F0;
+    --cor-primaria: white;
     --cor-secundaria: black ;
     --cor-terciaria: #FFCACC;
     --cor-quaternaria: #DBC4F0;

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../../assets/Logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../reset.css">
+    <script src="../../js/products/products-main-admin.js" defer type="module"></script>
+    <title>Gerenciar Produtos | BellaViva</title>
+</head>
+<body>
+    <div class="mensagem__feedback-sucesso">
+        <span class="mensagem-sucesso"><img src="../../assets/check.svg" class="mensagem-sucesso__imagem"></span>
+    </div>
+    <header class="cabecalho">
+        <div class="container">
+            <img src="../../assets/Logo.svg" class="container__imagem" alt="Logo da nossa marca">
+            <h1 class="container__titulo-admin">BellaViva</h1>
+        </div>
+        <div class="container">
+            <a href="#" class="container__link container__link-usuario" id="pagina__inicial"><img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente"><p class="container__texto">Meu perfil</p></a>
+            <a href="#" class="container__link container__link-usuario" id="usuario__logado">
+                <img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente">
+                <p class="container__texto"></p>
+                <ul class="botoes__usuario-logado">
+                    <span class="botao__usuario-logado botao__editar-perfil">Editar Perfil</span>
+                    <span class="botao__usuario-logado botao__sair">Sair</span>
+                    <span class="botao__usuario-logado botao__produtos">Gerenciar Produtos</span>
+                    <span class="botao__usuario-logado botao__usuarios">Gerenciar Usuários</span>
+                </ul>                
+            </a>
+        </div>
+    </header>
+
+    <div class="page__configs">
+        <p class="path"><a href="../../index.html">Home</a> > Gerenciar Produtos</p>
+    </div>
+    <hr class="path__line">
+    <section class="products__crud-section">
+
+        <div class="products__crud-div">
+            <input name="products" id="add-product" type="radio" checked>
+            <label class="products__crud" for="add-product">Adicionar novo produto</label>
+        </div>
+        <div class="products__crud-div">
+            <input name="products" id="delete-product" type="radio">
+            <label class="products__crud" for="delete-product">Deletar produto</label>
+        </div>
+        <div class="products__crud-div"> 
+            <input name="products" id="update-product" type="radio">
+            <label class="products__crud" for="update-product">Atualizar produto</label>
+        </div>
+        <div class="products__crud-div"> 
+            <input name="products" id="find-product" type="radio">
+            <label class="products__crud" for="find-product">Procurar produto</label>
+        </div>
+
+        <form class="formulario-products adicionar-produtos">
+            <fieldset class="formulario__campo">
+                <label for="nome" class="formulario__etiqueta">Nome</label>
+                <input type="text" id="nome" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="descricao" class="formulario__etiqueta">Descrição</label>
+                <input type="text" id="descricao" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="url-imagem" class="formulario__etiqueta">Url da imagem</label>
+                <input type="url" id="url-imagem" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="categoria" class="formulario__etiqueta">Categoria</label>
+                <input type="text" id="categoria" class="campo__escrita" required pattern="^(?:[\w\s\-áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+;*)+$" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            <fieldset class="formulario__campo">
+                <label for="preco" class="formulario__etiqueta">Preço</label>
+                <input type="text" id="preco" class="campo__escrita" required pattern="^\d+\.\d{2}$" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            <fieldset class="formulario__campo__botao">
+                <input type="submit" class="botao__crud-produtos botao__adicionar-produtos" value="Cadastrar novo produto">
+            </fieldset>
+        </form>
+
+        <form class="formulario-products deletar-produtos">
+            <fieldset class="formulario__campo">
+                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
+                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo__botao">
+                <input type="submit" class="botao__crud-produtos botao__deletar-produtos" value="Deletar produto">
+            </fieldset>
+        </form>
+
+        <form class="formulario-products atualizar-produtos">
+            <fieldset class="formulario__campo">
+                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
+                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            <fieldset class="formulario__campo">
+                <label for="nome" class="formulario__etiqueta">Nome</label>
+                <input type="text" id="nome" class="campo__escrita">
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="descricao" class="formulario__etiqueta">Descrição</label>
+                <input type="text" id="descricao" class="campo__escrita">
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="url-imagem" class="formulario__etiqueta">Url da imagem</label>
+                <input type="url" id="url-imagem" class="campo__escrita" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="categoria" class="formulario__etiqueta">Categoria</label>
+                <input type="text" id="categoria" class="campo__escrita" pattern="^(?:[\w\s\-áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+;*)+$" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            <fieldset class="formulario__campo">
+                <label for="preco" class="formulario__etiqueta">Preço</label>
+                <input type="text" id="preco" class="campo__escrita" pattern="^\d+\.\d{2}$" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            <fieldset class="formulario__campo__botao">
+                <input type="submit" class="botao__crud-produtos botao__atualizar-produtos" value="Atualizar produto">
+            </fieldset>
+        </form>
+
+        <form class="formulario-products procurar-produtos">
+            <fieldset class="formulario__campo">
+                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
+                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo__botao">
+                <input type="submit" class="botao__crud-produtos botao__procurar-produtos" value="Procurar produto">
+            </fieldset>
+        </form>
+        <ul class="products__container"></ul>
+
+    </section>
+
+    <hr style="margin: 2em 0em 1em 0em;">
+    <footer class="rodape">
+        <h2 class="rodape__titulo">Desenvolvido por Celso Siqueira</h2>
+        <div class="rodape-contato">
+            <p class="rodape-contato__texto">Me encontre:</p>
+            <a href="https://www.linkedin.com/in/celso-jacinto-de-siqueira-neto-23500a170" class="rodape-contato__link">
+                <img src="../../assets/rodape/linkedin.svg" class="rodape-contato__imagem">Linkedin</a>
+            <a href="https://github.com/CelsoSiqueira1996" class="rodape-contato__link">
+                <img src="../../assets/rodape/github.svg" class="rodape-contato__imagem">Github</a>
+        </div>
+    </footer>
+
+</body>
+</html>

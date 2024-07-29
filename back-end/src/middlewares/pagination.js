@@ -5,7 +5,8 @@ async function pagination(req, res, next) {
     try {
         limit = parseInt(limit);
         page = parseInt(page);
-
+        const pagesNumber = Math.ceil(req.elementsCount / limit);
+        page = (page < pagesNumber)? page : (pagesNumber > 0)? pagesNumber : 1;
         let [orderBy, order] = ordernation.split(':');
         order = parseInt(order);
 
@@ -18,7 +19,7 @@ async function pagination(req, res, next) {
                 .skip(limit*(page - 1))
                 .limit(limit);
 
-            const pagesNumber = Math.ceil(req.elementsCount / limit);
+
             const result = [pagesNumber, processList];
             res.status(200).send(result);
         } else {

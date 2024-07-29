@@ -43,7 +43,30 @@ const usersSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "products"
         }
-    ]
+    ],
+    street: {
+        type: String,
+        default: "----"
+    },
+    district: {
+        type: String,
+        default: "----"
+    },
+    number: {
+        type: String,
+        default: "----",
+    },
+    cellphone: {
+        type: String,
+        validate: {
+            validator: (value) => {
+                const numberPattern = new RegExp(/^\(?\d{2}\)?\d{4,5}-?\d{4}$/);
+                return numberPattern.test(value)
+            },
+            message: 'Inform a valid cellphone'
+        },
+        default: "(XX)XXXXX-XXXX"
+    }
 }, { versionKey: false });
 
 export const users = mongoose.model('users', usersSchema);
