@@ -112,6 +112,9 @@
     color: var(--cor-secundaria);
 }
 
+.procurar-usuario > .formulario__campo:has(> input[disabled]) {
+    display: none;
+}
 
 @media screen and (min-width: 900px) {
     .formulario-user {

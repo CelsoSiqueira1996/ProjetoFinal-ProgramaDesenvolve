@@ -1,19 +1,31 @@
 import { userConnection } from "../../connectionAPI/usersConnection.js";
 import showUsers from "../showUsers.js";
 
-async function searchUserAdmin(event) {
+async function searchUserAdmin(event, campos) {
     try{
         event.preventDefault();
         const id = event.target.elements["id-usuario"].value;
         const result = await userConnection.getUserById(id);
 
-        showUsers(result);
+        showUsers(result, campos);
 
     } catch(error) {
         throw error;
     }
 }
 
+async function searchUserId(id, campos) {
+    try {
+        const result = await userConnection.getUserById(id);
+        showUsers(result, campos)
+
+    } catch(error) {
+        throw error;
+    }
+
+}
+
 export const searchUser = {
-    searchUserAdmin
+    searchUserAdmin,
+    searchUserId
 }

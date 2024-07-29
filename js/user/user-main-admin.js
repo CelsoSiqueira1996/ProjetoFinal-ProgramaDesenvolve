@@ -14,6 +14,10 @@ const camposFormulario = document.querySelectorAll("[data-formulario]");
 const btnRadios = document.querySelectorAll("[type=radio]");
 const mensagensErro = document.querySelectorAll(".mensagem-erro");
 const list = document.querySelector(".user__container");
+const fieldIdUpdateUser = document.querySelector(".atualizar-usuario #id-usuario");
+const updateFields = document.querySelectorAll(".atualizar-usuario [data-formulario]");
+const searchFields = document.querySelectorAll(".procurar-usuario [disabled]");
+const fieldIdSearchUser = document.querySelector(".procurar-usuario #id-usuario");
 
 btnCrud.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -26,8 +30,25 @@ btnCrud.forEach((btn) => {
     })
 })
 
+fieldIdSearchUser.addEventListener("click", () => clearPlaceholderFields(searchFields));
+fieldIdUpdateUser.addEventListener("click", () => clearPlaceholderFields(updateFields))
+
+fieldIdUpdateUser.addEventListener("blur", async () => {
+    const id = fieldIdUpdateUser.value;
+    try{
+        await searchUser.searchUserId(id, updateFields);
+    } catch(error) {
+        clearPlaceholderFields(updateFields);
+        alert(error);
+    }
+})
+
 btnRadios.forEach((btn) => {
-    btn.addEventListener("change", resetForms);
+    btn.addEventListener("change", () => {
+        clearPlaceholderFields(updateFields);
+        clearPlaceholderFields(searchFields);
+        resetForms();
+    });
 })
 
 camposFormulario.forEach((campo) => {
@@ -37,7 +58,7 @@ camposFormulario.forEach((campo) => {
 
 formularioProcurarUsuario.addEventListener("submit", async (event) => {
     try{
-        await searchUser.searchUserAdmin(event);
+        await searchUser.searchUserAdmin(event, searchFields);
     } catch(error) {
         alert(error);
     }
@@ -60,6 +81,7 @@ formularioDeletarUsuario.addEventListener("submit", async (event) => {
 formularioAtualizarUsuario.addEventListener("submit", async (event) => {
     try{
         await updateUser.updateUserAdmin(event);
+        clearPlaceholderFields(updateFields);
         resetForms();
     } catch(error) {
         alert(error);
@@ -74,9 +96,6 @@ const erros = [
 ];
 
 const mensagens = {
-    nome: {
-        tooShort: "Por favor, preencha um nome válido."
-    },
     email: {
         typeMismatch: "Por favor, preencha um e-mail válido.",
         tooShort: "Por favor, preencha um e-mail válido."
@@ -84,8 +103,11 @@ const mensagens = {
     "id-usuario": {
         valueMissing: "O campo id não pode estar vazio."
     },
-    permissao : {
+    permission : {
         patternMismatch: "Por favor, preencha uma permissão válida (admin/user).",
+    },
+    cellphone: {
+        patternMismatch: "Por favor, preencha um número de celular válido: (XX)XXXXX-XXXX."
     }
 }
 
@@ -111,4 +133,11 @@ function resetForms() {
     if(list.childElementCount > 0) {
         list.innerHTML = "";
     }
+}
+
+function clearPlaceholderFields(campos) {
+    campos.forEach((campo) => {
+        campo.removeAttribute("placeholder");
+        if(campo.hasAttribute("disabled")) campo.parentNode.style.display = "none";
+    });
 }

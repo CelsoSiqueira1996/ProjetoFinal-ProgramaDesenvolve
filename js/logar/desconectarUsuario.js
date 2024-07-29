@@ -1,5 +1,4 @@
 import authLogout from "../auth/authLogout.js";
-import gerarMensagemSucesso from "../mensagemFeedback/mensagemStatusSucesso.js";
 
 const btnUsuario = document.querySelector("#pagina__inicial");
 const btnUsuarioLogado = document.querySelector("#usuario__logado");

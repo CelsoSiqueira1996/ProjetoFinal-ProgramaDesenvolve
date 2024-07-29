@@ -60,7 +60,7 @@ const usersSchema = new mongoose.Schema({
         type: String,
         validate: {
             validator: (value) => {
-                const numberPattern = new RegExp(/^\(?\d{2}\)?\d{4,5}-?\d{4}$/);
+                const numberPattern = new RegExp(/^\(?\d{2}\)?\d{4,5}-?\d{4}$|^\(XX\)XXXXX-XXXX$/);
                 return numberPattern.test(value)
             },
             message: 'Inform a valid cellphone'
