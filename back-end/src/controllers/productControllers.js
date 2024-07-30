@@ -7,7 +7,7 @@ class ProductController {
     static async createProduct(req, res, next) {
         try {
             const product = await productService.createProduct(req.body)
-            res.status(201).send({message: 'Product successfully created', product});
+            res.status(201).send({message: 'Produto criado com sucesso.', product});
         } catch(error) {
             next(error);
         }
@@ -38,7 +38,7 @@ class ProductController {
         const id = req.params.id;
         try{
             await productService.deleteProduct(id)
-            res.status(200).send({message: 'Product successfully deleted.'});
+            res.status(200).send({message: 'Produto deletado com sucesso.'});
         } catch(error) {
             next(error);
         }
@@ -48,7 +48,7 @@ class ProductController {
         const id = req.params.id;
         try {
             await productService.updateProduct({ id, ...req.body });
-            res.status(200).send({message: "Product successfully updated."});
+            res.status(200).send({message: "Produto atualizado com sucesso."});
         } catch(error) {
             next(error);
         }

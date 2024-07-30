@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 
 mongoose.Schema.Types.String.set('validate', {
     validator: (value) => value.trim() !== "",
-    message: ({ path }) => `The ${path} field was provided blank.`
+    message: ({ path }) => `O campo ${path} foi fornecido em branco.`
 });
 
 mongoose.Schema.Types.String.set('required', [
     true, 
-    `The {PATH} field is required.`
+    `O campo {PATH} é obrigatório.`
 ])

@@ -7,14 +7,14 @@ const usersSchema = new mongoose.Schema({
         type: String, 
         validate: {
             validator: (name) => name.length >= 3,
-            message: 'Insert a valid name (at least 3 chars)'
+            message: 'Insira um nome válido (pelo menos 3 caracteres).'
         }
     },
     cpf: {
         type: String,
         validate: {
             validator: (value) => validateCpfPattern(value),
-            message: 'Inform a valid CPF.'
+            message: 'Informe um CPF válido.'
         }
     },
     email: {
@@ -24,7 +24,7 @@ const usersSchema = new mongoose.Schema({
                 const emailPattern = new RegExp(/^[^@\s]+@[^@\s]+\.[^@\s]+$/);
                 return emailPattern.test(value);
             },
-            message: 'Inform a valid email.'
+            message: 'Informe um email válido.'
         }
     },
     password: {
@@ -32,18 +32,20 @@ const usersSchema = new mongoose.Schema({
     },
     birthdate: {
         type: Date,
-        required: [true, 'Birthdate is required.']
+        required: [true, 'Data de nascimento é obrigatória.']
     },
     permission: {
         type: String,
         default: 'user'
     },
-    cart: [
-        {
+    cart: [{
+        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "products"
-        }
-    ],
+        },
+        quantity: { type: Number }
+    }]
+    ,
     street: {
         type: String,
         default: "----"
@@ -63,7 +65,7 @@ const usersSchema = new mongoose.Schema({
                 const numberPattern = new RegExp(/^\(?\d{2}\)?\d{4,5}-?\d{4}$|^\(XX\)XXXXX-XXXX$/);
                 return numberPattern.test(value)
             },
-            message: 'Inform a valid cellphone'
+            message: 'Informe um número de celular válido.'
         },
         default: "(XX)XXXXX-XXXX"
     }

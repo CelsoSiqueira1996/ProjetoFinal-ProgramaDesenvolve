@@ -1,7 +1,7 @@
 import BaseError from "./baseError.js";
 
 class PermissionLevelError extends BaseError {
-    constructor(message='User does not have access permission.') {
+    constructor(message='Usuário não tem permissão de acesso.') {
         super(401, message);
     }
 }

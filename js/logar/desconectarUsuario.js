@@ -1,4 +1,5 @@
 import authLogout from "../auth/authLogout.js";
+import gerarMensagemSucesso from "../mensagemFeedback/mensagemStatusSucesso.js";
 
 const btnUsuario = document.querySelector("#pagina__inicial");
 const btnUsuarioLogado = document.querySelector("#usuario__logado");
@@ -35,5 +36,7 @@ export default async function disconnetUser() {
     esconderElementoLog(btnUsuarioLogado);
     aparecerElementoLog(btnUsuario);
     sessionStorage.clear();
-    location.pathname = "index.html";
+    window.location.href = location.protocol + "//" + location.host + "/index.html?logout";
 }
+
+if(window.location.search.includes("logout")) gerarMensagemSucesso("sair");

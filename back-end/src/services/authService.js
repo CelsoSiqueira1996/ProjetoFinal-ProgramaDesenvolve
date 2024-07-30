@@ -12,18 +12,18 @@ class AuthService {
         try {
             const CPF = cpf.replace(/\.|-/g, "");
             if(!(CPF && password)) {
-                throw new RequestError('CPF and password are required.')
+                throw new RequestError('CPF e senha são obrigatórios.')
             }
 
             const user = await users.findOne({cpf:CPF});
 
             if(!user) {
-                throw new NotFoundError('User does not exist.');
+                throw new NotFoundError('Usuário não existe.');
             }
 
             const checkPassword = await bcryptjs.compare(password, user.password);
             if(!checkPassword) {
-                throw new RequestError('Invalid user or password.')
+                throw new RequestError('Usuário ou senha inválidos.')
             }
 
             const accessToken = jwt.sign({

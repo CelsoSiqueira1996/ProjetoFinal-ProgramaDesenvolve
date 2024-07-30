@@ -1,7 +1,7 @@
 import RequestError from "./requestError.js";
 
 class AlreadyExistsError extends RequestError {
-    constructor(message='Resource already exists.') {
+    constructor(message='Recurso já existe.') {
         super(message);
     }
 }

@@ -6,7 +6,7 @@ class UserController {
     static async createUser(req, res, next) {
         try{
             const user = await userService.createUser(req.body);
-            res.status(201).send({message: 'User successfully created.', user});
+            res.status(201).send({message: 'Usuário criado com sucesso.', user});
         } catch(error) {
             next(error);
         }
@@ -35,7 +35,7 @@ class UserController {
         const id = req.params.id;
         try{
             await userService.deleteUser(id);
-            res.status(200).send({message: 'User successfully deleted.'});
+            res.status(200).send({message: 'Usuário deletado com sucesso.'});
         } catch(error) {
             next(error);
         }
@@ -45,7 +45,7 @@ class UserController {
         const { id } = req.params;
         try{
             await userService.updateUser({ id, ...req.body });
-            res.status(200).send({message: "User successfully updated."});
+            res.status(200).send({message: "Usuário atualizado com sucesso."});
         } catch(error) {
             next(error);
         }

@@ -58,7 +58,6 @@ function buildPagesNumber(pagesNumber, pageNumber) {
     }
     pages.append(buttonStart);
     let i = ((pagesNumber - pageNumber) >= 5)? pageNumber : ((pagesNumber - 5) <= 1)? 1 : pagesNumber - 5;
-    debugger
     for(i; (i <= (5 + pageNumber) && i <= pagesNumber); i++) {
         const buttonPageNumber = document.createElement("button");
         buttonPageNumber.setAttribute("id", `${i}`);

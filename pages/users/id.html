@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="../../assets/Logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../../reset.css">
-    <script src="../../js/products/products-main-admin.js" defer type="module"></script>
-    <title>Gerenciar Produtos | BellaViva</title>
+    <script src="../../js/user/userPage.js" defer type="module"></script>
+    <title>BellaViva | Editar Perfil</title>
 </head>
 <body>
     <div class="mensagem__feedback-sucesso">
@@ -16,10 +16,38 @@
     </div>
     <header class="cabecalho">
         <div class="container">
-            <img src="../../assets/Logo.svg" class="container__imagem" alt="Logo da nossa marca">
-            <h1 class="container__titulo-admin">BellaViva</h1>
+            <input type="checkbox" id="menu" class="container__botao">
+            <label for="menu" class="label__menu-hamburguer">
+                <span class="cabecalho__menu-hamburguer container__imagem"></span>
+            </label>
+            <ul class="lista-menu">
+                <li class="lista-menu__titulo">Categorias</li>
+                <li class="lista-menu__item"><a href="./category/Cabelos.html" class="lista-menu__link">Cabelos</a></li>
+                <li class="lista-menu__item"><a href="./category/Perfumes e Perfumaria.html" class="lista-menu__link">Perfumes e Perfumaria</a></li>
+                <li class="lista-menu__item"><a href="./category/Maquiagem.html" class="lista-menu__link">Maquiagem</a></li>
+                <li class="lista-menu__item"><a href="./category/Skincare.html" class="lista-menu__link">Skincare</a></li>
+                <li class="lista-menu__item"><a href="./category/Cuidados Pessoais.html" class="lista-menu__link">Cuidados Pessoais</a></li>
+                <li class="lista-menu__item"><a href="./category/Bem-Estar e Saúde.html" class="lista-menu__link">Bem-Estar e Saúde</a></li>
+            </ul>
+            <img src="../../../assets/Logo.svg" class="container__imagem" alt="Logo da nossa marca">
+            <h1 class="container__titulo">BellaViva</h1>
         </div>
+        <ul class="opcoes">
+            <li class="opcoes__item opcoes__item-menu">Categorias</li>
+            <li class="opcoes__item"><a href="#" class="opcoes__link">Favoritos</a></li>
+            <li class="opcoes__item"><a href="#" class="opcoes__link">Ajuda</a></li>
+            <ul class="lista-menu">
+                <li class="lista-menu__item"><a href="./category/Cabelos.html" class="lista-menu__link">Cabelos</a></li>
+                <li class="lista-menu__item"><a href="./category/Perfumes e Perfumaria.html" class="lista-menu__link">Perfumes e Perfumaria</a></li>
+                <li class="lista-menu__item"><a href="./category/Maquiagem.html" class="lista-menu__link">Maquiagem</a></li>
+                <li class="lista-menu__item"><a href="./category/Skincare.html" class="lista-menu__link">Skincare</a></li>
+                <li class="lista-menu__item"><a href="./category/Cuidados Pessoais.html" class="lista-menu__link">Cuidados Pessoais</a></li>
+                <li class="lista-menu__item"><a href="./category/Bem-Estar e Saúde.html" class="lista-menu__link">Bem-Estar e Saúde</a></li>
+            </ul>
+        </ul>
         <div class="container">
+            <a href="#"><img src="../../assets/Favoritos.svg" class="container__imagem imagem__favoritos"></a>
+            <a href="#" class="container__link container__link-compras"><img src="../../assets/Compras.svg" class="container__imagem container__imagem-transparente"><p class="container__texto">Minha sacola</p></a>
             <a href="#" class="container__link container__link-usuario" id="pagina__inicial"><img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente"><p class="container__texto">Meu perfil</p></a>
             <a href="#" class="container__link container__link-usuario" id="usuario__logado">
                 <img src="../../assets/Usuário.svg" class="container__imagem container__imagem-transparente">
@@ -29,124 +57,63 @@
                     <span class="botao__usuario-logado botao__sair">Sair</span>
                     <span class="botao__usuario-logado botao__produtos">Gerenciar Produtos</span>
                     <span class="botao__usuario-logado botao__usuarios">Gerenciar Usuários</span>
-                </ul>                
+                </ul> 
             </a>
         </div>
     </header>
 
     <div class="page__configs">
-        <p class="path"><a href="../../index.html">Home</a> > Gerenciar Produtos</p>
+        <p class="path"><a href="../../index.html">Home</a> > Editar Perfil</p>
     </div>
     <hr class="path__line">
-    <section class="products__crud-section">
-
-        <div class="products__crud-div">
-            <input name="products" id="add-product" type="radio" checked>
-            <label class="products__crud" for="add-product">Adicionar novo produto</label>
+    <section class="user__crud-section">
+        <div class="user__crud-div"> 
+            <input name="user" id="update-user" type="radio" checked hidden>
+            <span class="user__crud" for="update-user">Atualizar usuário</span>
         </div>
-        <div class="products__crud-div">
-            <input name="products" id="delete-product" type="radio">
-            <label class="products__crud" for="delete-product">Deletar produto</label>
-        </div>
-        <div class="products__crud-div"> 
-            <input name="products" id="update-product" type="radio">
-            <label class="products__crud" for="update-product">Atualizar produto</label>
-        </div>
-        <div class="products__crud-div"> 
-            <input name="products" id="find-product" type="radio">
-            <label class="products__crud" for="find-product">Procurar produto</label>
-        </div>
-
-        <form class="formulario-products adicionar-produtos">
+        <form class="formulario-user atualizar-usuario">
             <fieldset class="formulario__campo">
-                <label for="nome" class="formulario__etiqueta">Nome</label>
-                <input type="text" id="nome" class="campo__escrita" required data-formulario>
+                <label for="name" class="formulario__etiqueta">Nome</label>
+                <input type="text" id="name" class="campo__escrita" disabled data-formulario>
                 <span class="mensagem-erro"></span>
             </fieldset> 
             <fieldset class="formulario__campo">
-                <label for="descricao" class="formulario__etiqueta">Descrição</label>
-                <input type="text" id="descricao" class="campo__escrita" required data-formulario>
+                <label for="cpf" class="formulario__etiqueta">CPF</label>
+                <input type="text" id="cpf" class="campo__escrita" disabled data-formulario>
                 <span class="mensagem-erro"></span>
             </fieldset> 
             <fieldset class="formulario__campo">
-                <label for="url-imagem" class="formulario__etiqueta">Url da imagem</label>
-                <input type="url" id="url-imagem" class="campo__escrita" required data-formulario>
+                <label for="email" class="formulario__etiqueta">Email</label>
+                <input type="email" id="email" class="campo__escrita" minlength="3" data-formulario>
                 <span class="mensagem-erro"></span>
             </fieldset> 
             <fieldset class="formulario__campo">
-                <label for="categoria" class="formulario__etiqueta">Categoria</label>
-                <input type="text" id="categoria" class="campo__escrita" required pattern="^(?:[\w\s\-áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+;*)+$" data-formulario>
+                <label for="street" class="formulario__etiqueta">Rua</label>
+                <input type="text" id="street" class="campo__escrita" data-formulario>
                 <span class="mensagem-erro"></span>
-            </fieldset>
+            </fieldset> 
             <fieldset class="formulario__campo">
-                <label for="preco" class="formulario__etiqueta">Preço</label>
-                <input type="text" id="preco" class="campo__escrita" required pattern="^\d+\.\d{2}$" data-formulario>
+                <label for="district" class="formulario__etiqueta">Bairro</label>
+                <input type="text" id="district" class="campo__escrita" data-formulario>
                 <span class="mensagem-erro"></span>
-            </fieldset>
-            <fieldset class="formulario__campo__botao">
-                <input type="submit" class="botao__crud-produtos botao__adicionar-produtos" value="Cadastrar novo produto">
-            </fieldset>
-        </form>
-
-        <form class="formulario-products deletar-produtos">
+            </fieldset> 
             <fieldset class="formulario__campo">
-                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
-                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
+                <label for="number" class="formulario__etiqueta">Número</label>
+                <input type="text" id="number" class="campo__escrita" data-formulario>
+                <span class="mensagem-erro"></span>
+            </fieldset> 
+            <fieldset class="formulario__campo">
+                <label for="cellphone" class="formulario__etiqueta">Celular</label>
+                <input type="text" id="cellphone" class="campo__escrita" pattern="^\(?\d{2}\)?\d{4,5}-?\d{4}$" data-formulario>
                 <span class="mensagem-erro"></span>
             </fieldset> 
             <fieldset class="formulario__campo__botao">
-                <input type="submit" class="botao__crud-produtos botao__deletar-produtos" value="Deletar produto">
-            </fieldset>
-        </form>
-
-        <form class="formulario-products atualizar-produtos">
-            <fieldset class="formulario__campo">
-                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
-                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
-                <span class="mensagem-erro"></span>
-            </fieldset>
-            <fieldset class="formulario__campo">
-                <label for="nome" class="formulario__etiqueta">Nome</label>
-                <input type="text" id="nome" class="campo__escrita">
-                <span class="mensagem-erro"></span>
-            </fieldset> 
-            <fieldset class="formulario__campo">
-                <label for="descricao" class="formulario__etiqueta">Descrição</label>
-                <input type="text" id="descricao" class="campo__escrita">
-                <span class="mensagem-erro"></span>
-            </fieldset> 
-            <fieldset class="formulario__campo">
-                <label for="url-imagem" class="formulario__etiqueta">Url da imagem</label>
-                <input type="url" id="url-imagem" class="campo__escrita" data-formulario>
-                <span class="mensagem-erro"></span>
-            </fieldset> 
-            <fieldset class="formulario__campo">
-                <label for="categoria" class="formulario__etiqueta">Categoria</label>
-                <input type="text" id="categoria" class="campo__escrita" pattern="^(?:[\w\s\-áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+;*)+$" data-formulario>
-                <span class="mensagem-erro"></span>
-            </fieldset>
-            <fieldset class="formulario__campo">
-                <label for="preco" class="formulario__etiqueta">Preço</label>
-                <input type="text" id="preco" class="campo__escrita" pattern="^\d+\.\d{2}$" data-formulario>
-                <span class="mensagem-erro"></span>
+                <input type="submit" class="botao__crud-usuario botao__atualizar-usuario" value="Atualizar usuário">
             </fieldset>
             <fieldset class="formulario__campo__botao">
-                <input type="submit" class="botao__crud-produtos botao__atualizar-produtos" value="Atualizar produto">
+                <input type="button" class="botao__crud-usuario botao__deletar-usuario" value="Deletar usuário">
             </fieldset>
         </form>
-
-        <form class="formulario-products procurar-produtos">
-            <fieldset class="formulario__campo">
-                <label for="id-produto" class="formulario__etiqueta">id do Produto</label>
-                <input type="text" id="id-produto" class="campo__escrita" required data-formulario>
-                <span class="mensagem-erro"></span>
-            </fieldset> 
-            <fieldset class="formulario__campo__botao">
-                <input type="submit" class="botao__crud-produtos botao__procurar-produtos" value="Procurar produto">
-            </fieldset>
-        </form>
-        <ul class="products__container"></ul>
-
     </section>
 
     <hr style="margin: 2em 0em 1em 0em;">

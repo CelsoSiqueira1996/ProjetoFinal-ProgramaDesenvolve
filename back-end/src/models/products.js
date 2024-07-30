@@ -11,7 +11,7 @@ const productsSchema = new mongoose.Schema({
     }],
     price: {
         type: Number, 
-        required: [true, 'The price field is required.']
+        required: [true, 'O campo preço é obrigatório.']
     },
     salesCount: { type: Number, default: 0 }
 }, { versionKey: false });

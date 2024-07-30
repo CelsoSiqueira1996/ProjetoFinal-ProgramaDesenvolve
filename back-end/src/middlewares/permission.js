@@ -10,7 +10,7 @@ function permission(pathOrigin) {
             });
 
             if(!user) {
-                throw new NotFoundError('User does not exist.');
+                throw new NotFoundError('Usuário não existe.');
             }
 
             const permissionLevel = user.permission;

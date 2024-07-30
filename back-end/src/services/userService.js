@@ -6,12 +6,12 @@ import NotFoundError from '../errors/notFoundError.js';
 class UserService {
     async createUser(dto) {
         try{
-            const { password, name, email, cpf, birthdate, permission } = dto;
+            const { password, name, email, cpf, birthdate, permission, cart } = dto;
             const CPF = cpf.replace(/\.|-/g, "");
             const user = await users.findOne({cpf:CPF});
 
             if(user) {
-                throw new AlreadyExistsError('User already exists.');
+                throw new AlreadyExistsError('Usuário já existe.');
             }
 
             if(password) {
@@ -24,7 +24,8 @@ class UserService {
                 birthdate,
                 cpf: CPF,
                 password: encryptedPassword,
-                permission: permission || 'user'
+                permission: permission || 'user',
+                cart: cart
             })
 
             return createdUser;
@@ -34,9 +35,9 @@ class UserService {
         }
     }
 
-    async getUsers() {
+    getUsers() {
         try{
-            const usersList = users.find().populate("cart");
+            const usersList = users.find().populate("cart.id");
 
             return usersList;
         } catch(error) {
@@ -46,10 +47,10 @@ class UserService {
 
     async getUserById(id) {
         try{
-            const user = await users.findById(id).populate("cart");
+            const user = await users.findById(id).populate("cart.id");
 
             if(!user) {
-                throw new NotFoundError('User not found.')
+                throw new NotFoundError('Usuário não encontrado.')
             }
 
             return user;

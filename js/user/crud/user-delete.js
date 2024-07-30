@@ -1,4 +1,3 @@
-import decodeTokenPayload from "../../auth/decodeToken.js";
 import { userConnection } from "../../connectionAPI/usersConnection.js";
 
 async function deleteUserAdmin(event) {
@@ -13,6 +12,17 @@ async function deleteUserAdmin(event) {
     }
 }
 
+async function deleteUserId(id) {
+    try{
+        const result = await userConnection.deleteUser(id);
+
+        alert(result.message);
+    } catch(error) {
+        throw error;
+    }
+}
+
 export const deleteUser = {
-    deleteUserAdmin
+    deleteUserAdmin,
+    deleteUserId
 }

@@ -12,7 +12,7 @@ class ProductService {
         });
 
             if(product) {
-                throw new AlreadyExistsError('Product already exists.');
+                throw new AlreadyExistsError('Produto já existe.');
             }
 
             const createdProduct = await products.create(dto);
@@ -40,7 +40,7 @@ class ProductService {
             const product = await products.findById(id);
 
             if(!product) {
-                throw new NotFoundError('Product not found.')
+                throw new NotFoundError('Produto não encontrado.')
             }
 
             return product;

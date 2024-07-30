@@ -12,7 +12,11 @@ export default function gerarMensagemSucesso(etiqueta) {
         case "cadastrar":
             mensagemSucessoTexto.textContent = "Cadastro realizado com sucesso!";
         break;
+        case "sair":
+            mensagemSucessoTexto.textContent = "Logout realizado com sucesso!";
+        break;
         default:
+            mensagemSucessoTexto.textContent = etiqueta;
             break;
     }
 

@@ -17,7 +17,7 @@ class AuthController {
         const { created_at, accessToken } = req.body;
         try {
             await authService.logoutUser({created_at, accessToken})
-            res.status(200).send({message: "Logout completed successfully."});
+            res.status(200).send({message: "Logout realizado com sucesso."});
         } catch(error) {
             next(error)
         }
@@ -35,7 +35,7 @@ class AuthController {
     static async deleteExperidTokens(req, res, next) {
         try {
             await authService.deleteExpiredTokens();
-            res.status(200).send({message: "Experid tokens successfully deleted."});
+            res.status(200).send({message: "Tokens expirados deletados com sucesso."});
         } catch(error) {
             next(error);
         }

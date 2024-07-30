@@ -2,6 +2,7 @@ import decodeTokenPayload from "../auth/decodeToken.js";
 
 const btnProdutos = document.querySelector(".botao__produtos");
 const btnUsuarios =  document.querySelector(".botao__usuarios");
+const btnEditarPerfil = document.querySelector(".botao__editar-perfil");
 
 btnProdutos.addEventListener("click", () => {
     window.location = location.protocol + "//" + location.host + '/pages/products/admin.html';
@@ -9,6 +10,16 @@ btnProdutos.addEventListener("click", () => {
 
 btnUsuarios.addEventListener("click", () => {
      window.location = location.protocol + "//" + location.host + '/pages/users/admin.html';
+});
+
+btnEditarPerfil.addEventListener("click", () => {
+    if(sessionStorage.getItem("loginUser")) {
+        const payload = decodeTokenPayload();
+        const idUser = payload.id;
+        window.location = location.protocol + "//" + location.host + `/pages/users/id.html?${idUser}`;
+    } else {
+        location.pathname = "index.html";
+    }
 });
 
 function checkUserLog() {
