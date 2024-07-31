@@ -61,9 +61,65 @@ async function getUserById(id) {
     return convertedConnection;
 }
 
+async function updateProductQuantity(id, quantity, productId) {
+    const accessToken = getAccessToken();
+    const connection = await fetch(`http://localhost:3000/users/id/cart/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json",
+            "authorization": accessToken
+        },
+        body: JSON.stringify(
+            {quantity, productId}
+        )
+    });
+    const convertedConnection = await connection.json();
+    if(!connection.ok) {
+        throw new Error(convertedConnection.message);
+    }
+    return convertedConnection;
+}
+
+async function updateCartListNewProduct(id, productId) {
+    const accessToken = getAccessToken();
+    const connection = await fetch(`http://localhost:3000/users/id/cart/addProduct/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json",
+            "authorization": accessToken
+        },
+        body: JSON.stringify({ productId })
+    });
+    const convertedConnection = await connection.json();
+    if(!connection.ok) {
+        throw new Error(convertedConnection.message);
+    }
+    return convertedConnection;
+}
+
+async function updateCartListRemoveProduct(id, productId) {
+    const accessToken = getAccessToken();
+    const connection = await fetch(`http://localhost:3000/users/id/cart/removeProduct/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json",
+            "authorization": accessToken
+        },
+        body: JSON.stringify({ productId })
+    });
+    const convertedConnection = await connection.json();
+    if(!connection.ok) {
+        throw new Error(convertedConnection.message);
+    }
+    return convertedConnection;
+}
+
 export const userConnection = {
     postUser,
     deleteUser,
     updateUser,
-    getUserById
+    getUserById,
+    updateProductQuantity,
+    updateCartListNewProduct,
+    updateCartListRemoveProduct
 };

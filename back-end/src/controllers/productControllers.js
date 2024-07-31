@@ -7,7 +7,7 @@ class ProductController {
     static async createProduct(req, res, next) {
         try {
             const product = await productService.createProduct(req.body)
-            res.status(201).send({message: 'Produto criado com sucesso.', product});
+            res.status(201).send({message: 'Produto cadastrado com sucesso.', product});
         } catch(error) {
             next(error);
         }

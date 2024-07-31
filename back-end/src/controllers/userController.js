@@ -6,7 +6,7 @@ class UserController {
     static async createUser(req, res, next) {
         try{
             const user = await userService.createUser(req.body);
-            res.status(201).send({message: 'Usuário criado com sucesso.', user});
+            res.status(201).send({message: 'Usuário cadastrado com sucesso.', user});
         } catch(error) {
             next(error);
         }
@@ -50,6 +50,40 @@ class UserController {
             next(error);
         }
     }
+
+    static async updateProductQuantity(req, res, next) {
+        try {
+            const { quantity, productId } = req.body;
+            const id = req.params.id;
+            await userService.updateProductQuantity(id, quantity, productId);
+            res.status(200).send({ message: "Carrinho atualizado com sucesso."});
+        } catch(error) {
+            next(error)
+        }
+    }
+
+    static async updateCartListNewProduct(req, res, next) {
+        try {
+            const id = req.params.id;
+            const productId = req.body.productId;
+            await userService.updateCartListNewProduct(id, productId);
+            res.status(200).send({ message: "Produto inserido ao carrinho com sucesso."})
+        } catch(error) {
+            next(error);
+        }
+    } 
+
+    static async updateCartListRemoveProduct(req, res, next) {
+        try {
+            const id = req.params.id;
+            const productId = req.body.productId;
+            await userService.updateCartListRemoveProduct(id, productId);
+            res.status(200).send({ message: "Produto removido do carrinho com sucesso."});
+        } catch(error) {
+            next(error);
+        }
+    }
+
 }
 
 export default UserController;

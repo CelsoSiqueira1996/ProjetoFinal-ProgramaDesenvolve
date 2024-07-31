@@ -66,6 +66,7 @@ formularioDeletarProduto.addEventListener("submit", async (event) => {
         modalCarregamento.mostrarModalCarregamento();
         await deleteProduct(event);
         resetForms();
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
         modalCarregamento.esconderModalCarregamento();
         alert(error);
@@ -77,6 +78,7 @@ formularioAtualizarProduto.addEventListener("submit", async (event) => {
         modalCarregamento.mostrarModalCarregamento();
         await updateProduct(event);
         resetForms();
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
         modalCarregamento.esconderModalCarregamento();
         alert(error);

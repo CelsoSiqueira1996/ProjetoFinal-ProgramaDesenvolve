@@ -77,6 +77,42 @@ class UserService {
             throw error;
         }
     }
+
+    async updateProductQuantity(id, quantity, productId) {
+        await this.getUserById(id);
+        try {
+            await users.updateOne(
+                { _id: id, "cart.product": productId},
+                { $set: { "cart.$.quantity": quantity }} 
+            );
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    async updateCartListNewProduct(id, productId) {
+        await this.getUserById(id);
+        try {
+            await users.updateOne(
+                { _id: id },
+                { $push: { cart: { product: productId, quantity: 1} } }
+            );
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    async updateCartListRemoveProduct(id, productId) {
+        await this.getUserById(id);
+        try {
+            await users.updateOne(
+                { _id: id },
+                { $pull : { cart : { product : productId }}}
+            );
+        } catch(error) {
+            throw error;
+        }
+    }
 }
 
 export default UserService;

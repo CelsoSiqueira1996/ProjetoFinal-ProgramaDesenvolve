@@ -12,7 +12,7 @@ function mostrarModalCarregamento() {
 
 function esconderModalCarregamento() {
     const body = document.querySelector("body");
-    const modalCarregamento = document.querySelector("modal-carregamento");
+    const modalCarregamento = document.querySelector(".modal-carregamento");
     body.removeChild(modalCarregamento);
 }
 

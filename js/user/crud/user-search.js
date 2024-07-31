@@ -29,7 +29,7 @@ async function searchUserId(id, campos) {
 async function searchUserIdForCart(id) {
     try {
         const result = await userConnection.getUserById(id);
-        showUserCart(result.cart);
+        showUserCart(result.cart, id);
     } catch(error) {
         throw error;
     }

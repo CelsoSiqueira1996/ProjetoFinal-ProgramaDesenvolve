@@ -1,7 +1,13 @@
+import decodeTokenPayload from "../auth/decodeToken.js";
+import { modalCarregamento } from "../modalCarregamento.js";
+import { updateUser } from "../user/crud/user-update.js";
 import { searchProducts } from "./crud/products-search.js";
 
 const path = window.location.href;
 const productId = path.split("?")[1];
+const modal = document.querySelector(".modal");
+const formularioNovoUsuario = document.querySelector(".formulario__registrar");
+const formularioLogin = document.querySelector(".formulario__entrar");
 
 try {
     await searchProducts.searchProductByIdPage(productId);
@@ -57,6 +63,7 @@ function createBtnAddCart() {
     btnAddCart.innerHTML = `
         <p class="product__page-btn">Adicionar ao carrinho</p>
     `;
+    btnAddProductIntoCart(btnAddCart);
     return btnAddCart;
 }
 
@@ -64,5 +71,26 @@ function clearElementClassList(element) {
     element.classList.remove(...element.classList);
 }
 
+function btnAddProductIntoCart(btn) {
+    btn.addEventListener("click", async () => {
+        if(sessionStorage.getItem("loginUser")) {
+            try {
+                modalCarregamento.mostrarModalCarregamento();
+                const payload = decodeTokenPayload();
+                const idUser = payload.id;
+                await updateUser.updateCartListNewProduct(idUser, productId);
+                modalCarregamento.esconderModalCarregamento();
+                window.location = location.protocol + "//" + location.host + `/pages/users/id/carrinho de compras.html?${idUser}`;
+            } catch(error) {
+                modalCarregamento.esconderModalCarregamento();
+                alert(error);
+            }
+        } else {
+            modal.style.display = "block";
+            formularioNovoUsuario.style.display = "none";
+            formularioLogin.style.display = "block";
+        }
+    });
+}
 createDivProduct();
 

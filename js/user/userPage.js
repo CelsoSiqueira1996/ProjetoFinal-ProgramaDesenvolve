@@ -1,5 +1,6 @@
 import "../logar/checkUserLog.js";
 import disconnetUser from "../logar/desconectarUsuario.js";
+import { modalCarregamento } from "../modalCarregamento.js";
 import { deleteUser } from "./crud/user-delete.js";
 import { searchUser } from "./crud/user-search.js";
 import { updateUser } from "./crud/user-update.js";
@@ -22,18 +23,24 @@ camposFormulario.forEach((campo) => {
 
 formularioAtualizarUsuario.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await updateUser.updateUserId(event, idUser, camposFormulario);
         formularioAtualizarUsuario.reset();
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });
 
 btnDeletarUsuario.addEventListener("click", async () => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await deleteUser.deleteUserId(idUser);
+        modalCarregamento.esconderModalCarregamento();
         await disconnetUser();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });

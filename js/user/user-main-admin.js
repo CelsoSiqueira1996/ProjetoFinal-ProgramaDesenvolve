@@ -1,6 +1,7 @@
 import decodeTokenPayload from "../auth/decodeToken.js";
 import "../logar/checkUserLog.js";
 import disconnetUser from "../logar/desconectarUsuario.js";
+import { modalCarregamento } from "../modalCarregamento.js";
 import { deleteUser } from "./crud/user-delete.js";
 import { searchUser } from "./crud/user-search.js";
 import { updateUser } from "./crud/user-update.js";
@@ -58,15 +59,20 @@ camposFormulario.forEach((campo) => {
 
 formularioProcurarUsuario.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await searchUser.searchUserAdmin(event, searchFields);
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });
 
 formularioDeletarUsuario.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await deleteUser.deleteUserAdmin(event);
+        modalCarregamento.esconderModalCarregamento();
         const payload = decodeTokenPayload();
         const idCurrentUser = payload.id;
         if(event.target.elements["id-usuario"].value == idCurrentUser) {
@@ -74,16 +80,20 @@ formularioDeletarUsuario.addEventListener("submit", async (event) => {
         }
         resetForms();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });
 
 formularioAtualizarUsuario.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await updateUser.updateUserAdmin(event);
         clearPlaceholderFields(updateFields);
         resetForms();
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });

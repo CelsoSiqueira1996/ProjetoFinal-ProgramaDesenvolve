@@ -52,7 +52,36 @@ async function updateUserId(event, id, campos) {
 
 }
 
+async function updateCartProductQuantityIdUser(id, quantity, productId) {
+    try {
+        await userConnection.updateProductQuantity(id, quantity, productId);
+    } catch(error) {
+        throw error;
+    }
+}
+
+async function updateCartListNewProduct(id, productId) {
+    try {
+        const result = await userConnection.updateCartListNewProduct(id, productId);
+        alert(result.message);
+    } catch(error) {
+        throw error;
+    }
+}
+
+async function updateCartListRemoveProduct(id, productId) {
+    try {
+        const result = await userConnection.updateCartListRemoveProduct(id, productId);
+        alert(result.message);
+    } catch(error) {
+        throw error;
+    }
+}
+
 export const updateUser = {
     updateUserAdmin,
-    updateUserId
+    updateUserId,
+    updateCartProductQuantityIdUser,
+    updateCartListNewProduct,
+    updateCartListRemoveProduct
 }

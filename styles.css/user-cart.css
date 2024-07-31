@@ -7,12 +7,15 @@
 }
 
 .user__cart-list {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border: 1px solid black;
     border-radius: 8px;
     width: 95%;
+    padding-top: 28px;
+    padding: 14px;
 }
 
 .user__cart-div {
@@ -91,6 +94,25 @@
     justify-content: center;
     gap: 0.5em;
     align-items: center;
+}
+
+.btn__remove-product {
+    position: absolute;
+    background-image: url("../assets/waste-products-cart.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: 900;
+    height: 40px;
+    width: 40px;
+    transform: scale 1s erase;
+}
+
+.btn__remove-product:hover {
+    cursor: pointer;
+    scale: 1.2;
 }
 
 @media screen and (min-width: 900px) {
