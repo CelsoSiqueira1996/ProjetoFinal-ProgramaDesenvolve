@@ -7,6 +7,7 @@ function mostrarModalCarregamento() {
             <div class="c-loader"></div>
         </section>
     `
+    body.append(modalCarregamento);
 }
 
 function esconderModalCarregamento() {
