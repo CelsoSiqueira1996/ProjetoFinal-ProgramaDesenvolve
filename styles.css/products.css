@@ -179,6 +179,7 @@
     font-weight: 700;
     font-family: var(--fonte-secundaria);
     color: var(--cor-secundaria);
+    margin: 1em;
 }
 
 .pages__number {
@@ -230,6 +231,10 @@ button[disabled="true"]:hover {
 
     .page__configs {
         margin: 0em 2em;
+    }
+
+    .mensagem__nao-encontrado {
+        margin: 3em;
     }
 
 }

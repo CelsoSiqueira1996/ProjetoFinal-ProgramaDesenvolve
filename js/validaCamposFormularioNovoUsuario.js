@@ -11,8 +11,6 @@ const camposFormulario = formularioNovoUsuario.querySelectorAll("[required]");
 const campoSenhaCadastrar = document.querySelector("#senha");
 const btnCadastrar = document.querySelector(".botao__cadastrar-usuario");
 
-export const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
 btnCadastrar.addEventListener("click", () => {
     camposFormulario.forEach((campo) => verificaCampoFormulario(campo));
 });

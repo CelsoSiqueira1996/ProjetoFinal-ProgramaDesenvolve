@@ -31,7 +31,6 @@ formularioEntrar.addEventListener("submit", async (event) => {
         resetarModal();
         gerarMensagemSucesso("entrar");
         usuarioLogado(primeiroNomeUsuarioLogado, permission);
-        if(window.location.search.includes("logout")) window.location.search = location.protocol + "//" + location.host + "/index.html";
     } catch(error) {
         alert(error);
         resetarModal();

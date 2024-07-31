@@ -11,6 +11,8 @@
 @import url("./styles.css/products.css");
 @import url("./styles.css/product.css");
 @import url("./styles.css/user.css");
+@import url("./styles.css/user-cart.css");
+@import url("./styles.css/modal-carregamento.css");
 
 
 :root {

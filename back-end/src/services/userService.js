@@ -37,7 +37,7 @@ class UserService {
 
     getUsers() {
         try{
-            const usersList = users.find().populate("cart.id");
+            const usersList = users.find().populate("cart.product");
 
             return usersList;
         } catch(error) {
@@ -47,7 +47,7 @@ class UserService {
 
     async getUserById(id) {
         try{
-            const user = await users.findById(id).populate("cart.id");
+            const user = await users.findById(id).populate("cart.product");
 
             if(!user) {
                 throw new NotFoundError('Usuário não encontrado.')

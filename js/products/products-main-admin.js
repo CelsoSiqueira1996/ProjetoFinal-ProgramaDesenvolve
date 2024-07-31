@@ -4,6 +4,7 @@ import { searchProducts } from "./crud/products-search.js";
 import updateProduct from "./crud/products-update.js";
 import "../logar/checkUserLog.js";
 import "../logar/desconectarUsuario.js";
+import { modalCarregamento } from "../modalCarregamento.js";
 
 const formularioAdicionarProduto = document.querySelector(".adicionar-produtos");
 const formularioDeletarProduto = document.querySelector(".deletar-produtos");
@@ -38,35 +39,46 @@ camposFormulario.forEach((campo) => {
 
 formularioAdicionarProduto.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await createProduct(event);
         resetForms();
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
+
     }
 });
 
 formularioProcurarProduto.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await searchProducts.searchProductById(event);
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });
 
 formularioDeletarProduto.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await deleteProduct(event);
         resetForms();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });
 
 formularioAtualizarProduto.addEventListener("submit", async (event) => {
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await updateProduct(event);
         resetForms();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         alert(error);
     }
 });

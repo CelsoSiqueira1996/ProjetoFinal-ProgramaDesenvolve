@@ -1,0 +1,41 @@
+.modal-carregamento {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal__conteudo-carregamento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    background-color: var(--cor-primaria);
+    border-radius: 8px;
+    border: 2px solid var(--cor-secundaria);
+    width: 200px;
+    height: 100px;
+    position: relative;
+  }
+
+.c-loader {
+    animation: is-rotating 1s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: #51d4db;
+    height: 25px;
+    width: 25px;
+  }
+  
+@keyframes is-rotating {
+to {
+    transform: rotate(1turn);
+}
+}

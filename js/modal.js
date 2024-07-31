@@ -1,3 +1,4 @@
+import decodeTokenPayload from "./auth/decodeToken.js";
 import resetarModal from "./reset/resetarModal.js";
 
 const modal = document.querySelector(".modal");
@@ -9,6 +10,7 @@ const logarUsuario = document.querySelector(".formulario__texto__login");
 const btnFecharModal = document.querySelector(".fechar");
 const mensagensErro = document.querySelectorAll(".mensagem-erro");
 const campoConfirmarSenha = document.querySelector(".campo__confirmar-senha");
+const btnCarrinhoDeCompras = document.querySelector(".container__link-compras");
 
 function apagarMensagensErro() {
     mensagensErro.forEach((mensagem) => {
@@ -33,6 +35,22 @@ loginUsuario.addEventListener("click", () => {
     esconderElemento(formularioNovoUsuario);
     aparecerElemento(formularioLogin);
 });
+
+btnCarrinhoDeCompras.addEventListener("click", () => {
+    if(sessionStorage.getItem("loginUser")) {
+        const payload = decodeTokenPayload();
+        const idUser = payload.id;
+        btnCarrinhoDeCompras.setAttribute("href", `/pages/users/id/carrinho de compras.html?${idUser}`);
+    } else {
+        aparecerElemento(modal);
+        esconderElemento(formularioNovoUsuario);
+        aparecerElemento(formularioLogin);
+    }
+});
+
+btnCarrinhoDeCompras.addEventListener("mouseover", () => {
+    btnCarrinhoDeCompras.style.cursor = "pointer";
+})
 
 window.addEventListener("click", (evento) => {
     if(evento.target == modal) {

@@ -1,4 +1,5 @@
 import { userConnection } from "../../connectionAPI/usersConnection.js";
+import showUserCart from "../showUserCart.js";
 import showUsers from "../showUsers.js";
 
 async function searchUserAdmin(event, campos) {
@@ -25,7 +26,17 @@ async function searchUserId(id, campos) {
 
 }
 
+async function searchUserIdForCart(id) {
+    try {
+        const result = await userConnection.getUserById(id);
+        showUserCart(result.cart);
+    } catch(error) {
+        throw error;
+    }
+}
+
 export const searchUser = {
     searchUserAdmin,
-    searchUserId
+    searchUserId,
+    searchUserIdForCart
 }

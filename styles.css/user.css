@@ -105,13 +105,6 @@
     margin: 0em;
 }
 
-.mensagem__nao-encontrado {
-    font-size: 18px;
-    font-weight: 700;
-    font-family: var(--fonte-secundaria);
-    color: var(--cor-secundaria);
-}
-
 .procurar-usuario > .formulario__campo:has(> input[disabled]) {
     display: none;
 }
