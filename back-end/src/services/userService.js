@@ -11,7 +11,7 @@ class UserService {
             const user = await users.findOne({cpf:CPF});
 
             if(user) {
-                throw new AlreadyExistsError('Usuário já existe.');
+                throw new AlreadyExistsError('Usuário já possui cadastro.');
             }
 
             if(password) {
@@ -93,10 +93,18 @@ class UserService {
     async updateCartListNewProduct(id, productId) {
         await this.getUserById(id);
         try {
+            const userProduct = await users.findOne({
+                _id: id, 
+                "cart.product": { $eq: productId } }
+            );
+            if(userProduct) {
+                return "Produto já está no carrinho.";
+            }
             await users.updateOne(
                 { _id: id },
                 { $push: { cart: { product: productId, quantity: 1} } }
             );
+            return "Produto inserido no carrinho com sucesso.";
         } catch(error) {
             throw error;
         }

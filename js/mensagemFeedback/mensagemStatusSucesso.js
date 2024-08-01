@@ -1,11 +1,11 @@
 const divMensagemSucesso = document.querySelector(".mensagem__feedback-sucesso");
 const mensagemSucesso = document.querySelector(".mensagem-sucesso");
 
-export default function gerarMensagemSucesso(etiqueta) {
+export default function gerarMensagemSucesso(mensagem) {
     const mensagemSucessoTexto = document.createElement("p");
     mensagemSucessoTexto.classList.add("mensagem-sucesso__texto");
 
-    switch (etiqueta) {
+    switch (mensagem) {
         case "entrar":
             mensagemSucessoTexto.textContent = "Login realizado com sucesso!";
         break;
@@ -13,7 +13,7 @@ export default function gerarMensagemSucesso(etiqueta) {
             mensagemSucessoTexto.textContent = "Cadastro realizado com sucesso!";
         break;
         default:
-            mensagemSucessoTexto.textContent = etiqueta;
+            mensagemSucessoTexto.textContent = mensagem;
             break;
     }
 

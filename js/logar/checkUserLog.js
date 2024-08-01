@@ -3,6 +3,7 @@ import decodeTokenPayload from "../auth/decodeToken.js";
 const btnProdutos = document.querySelector(".botao__produtos");
 const btnUsuarios =  document.querySelector(".botao__usuarios");
 const btnEditarPerfil = document.querySelector(".botao__editar-perfil");
+const btnTokens = document.querySelector(".botao__tokens");
 
 btnProdutos.addEventListener("click", () => {
     window.location = location.protocol + "//" + location.host + '/pages/products/admin.html';
@@ -11,6 +12,10 @@ btnProdutos.addEventListener("click", () => {
 btnUsuarios.addEventListener("click", () => {
      window.location = location.protocol + "//" + location.host + '/pages/users/admin.html';
 });
+
+btnTokens.addEventListener("click", () => {
+    window.location = location.protocol + "//" + location.host + '/pages/tokens/admin.html';
+})
 
 btnEditarPerfil.addEventListener("click", () => {
     if(sessionStorage.getItem("loginUser")) {
@@ -47,6 +52,7 @@ export default function usuarioLogado(nome, permission) {
     if(permission == "admin") {
         btnProdutos.style.display = "block";
         btnUsuarios.style.display = "block";
+        btnTokens.style.display = "block";
     }
 }
 

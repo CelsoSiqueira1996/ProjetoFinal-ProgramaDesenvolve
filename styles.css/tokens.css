@@ -1,0 +1,62 @@
+.token__crud-div {
+    margin: 2em;
+}
+
+.token__crud {
+    font-family: var(--fonte-principal);
+}
+
+.botao__crud-token {
+    padding: 0.5em 1em;
+    margin-left: 2em;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-primaria);
+    cursor: pointer;
+    background-color: #4DABF7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+  
+.botao__crud-token:active {
+    cursor: pointer;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.page__configs {
+    margin: 0em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.path {
+    margin: 0.75em;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(32, 32, 32);
+    box-sizing: border-box;
+    text-wrap: balance;
+}
+
+.path > a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--fonte-secundaria);
+    color: rgb(136, 136, 136);
+}
+
+.path > a:hover {
+    color: var(--cor-quaternaria);
+}
+
+.path__line {
+    margin: 0em;
+}

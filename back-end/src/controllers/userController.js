@@ -66,8 +66,9 @@ class UserController {
         try {
             const id = req.params.id;
             const productId = req.body.productId;
-            await userService.updateCartListNewProduct(id, productId);
-            res.status(200).send({ message: "Produto inserido ao carrinho com sucesso."})
+            const message = await userService.updateCartListNewProduct(id, productId);
+            console.log(message);
+            res.status(200).send({ message });
         } catch(error) {
             next(error);
         }

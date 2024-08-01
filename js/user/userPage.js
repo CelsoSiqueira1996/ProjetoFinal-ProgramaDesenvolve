@@ -1,3 +1,4 @@
+import decodeTokenPayload from "../auth/decodeToken.js";
 import "../logar/checkUserLog.js";
 import disconnetUser from "../logar/desconectarUsuario.js";
 import { modalCarregamento } from "../modalCarregamento.js";
@@ -9,8 +10,20 @@ const formularioAtualizarUsuario = document.querySelector(".atualizar-usuario");
 const btnAtualizarUsuario = document.querySelector(".botao__atualizar-usuario");
 const btnDeletarUsuario = document.querySelector(".botao__deletar-usuario");
 const camposFormulario = document.querySelectorAll("[data-formulario]");
+const btnCarrinhoDeCompras = document.querySelector(".container__link-compras");
 const path = window.location.href;
 const idUser = path.split("?")[1];
+
+btnCarrinhoDeCompras.addEventListener("click", () => {
+    if(sessionStorage.getItem("loginUser")) {
+        const payload = decodeTokenPayload();
+        const idUser = payload.id;
+        btnCarrinhoDeCompras.setAttribute("href", `/pages/users/id/carrinho de compras.html?${idUser}`);
+    } else {
+        alert("Usuário precisa estar logado. Por favor realize o login.");  
+        window.location.href = location.protocol + "//" + location.host + "/index.html";
+    }
+});
 
 btnAtualizarUsuario.addEventListener("click", () => {
     camposFormulario.forEach((campo) => verificaCampoFormulario(campo))

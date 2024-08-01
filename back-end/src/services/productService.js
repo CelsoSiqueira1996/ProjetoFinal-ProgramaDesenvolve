@@ -12,7 +12,7 @@ class ProductService {
         });
 
             if(product) {
-                throw new AlreadyExistsError('Produto já existe.');
+                throw new AlreadyExistsError('Produto já cadastrado.');
             }
 
             const createdProduct = await products.create(dto);

@@ -37,8 +37,11 @@ fieldIdUpdateUser.addEventListener("click", () => clearPlaceholderFields(updateF
 fieldIdUpdateUser.addEventListener("blur", async () => {
     const id = fieldIdUpdateUser.value;
     try{
+        modalCarregamento.mostrarModalCarregamento();
         await searchUser.searchUserId(id, updateFields);
+        modalCarregamento.esconderModalCarregamento();
     } catch(error) {
+        modalCarregamento.esconderModalCarregamento();
         clearPlaceholderFields(updateFields);
         alert(error);
     }

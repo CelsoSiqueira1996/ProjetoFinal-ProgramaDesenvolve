@@ -86,7 +86,7 @@
     display: none;
 }
 
-#pagina__inicial, .botao__produtos, .botao__usuarios {
+#pagina__inicial, .botao__produtos, .botao__usuarios, .botao__tokens {
     display: none;
 }
 

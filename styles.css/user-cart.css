@@ -9,7 +9,6 @@
 .user__cart-list {
     position: relative;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     border: 1px solid black;
     border-radius: 8px;
@@ -19,7 +18,7 @@
 }
 
 .user__cart-div {
-    width: auto;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -48,7 +47,6 @@
     font-family: var(--fonte-principal);
     font-weight: 700;
     margin: 0.5em;
-    width: auto;
     text-align: center;
     text-wrap: nowrap;
 }
