@@ -76,6 +76,10 @@ Este projeto final, proposto pela equipe Alura juntamente com o grupo Boticário
      npm run dev
      ```
 
+6. **Usuários**
+
+  A aplicação apresenta um controle de acesso por meio de permissões. Existem dois tipos de usuários: "user" e o "admin". Apenas usuários "admin" possuem permissões especiais, e são capazes de gerenciar produtos, usuários e tokens gerados. Já os usuários "user" são os usuários padrão, podendo visualizar os produtos, editar e deletar o próprio perfil e editar o próprio carrinho de compras.
+
 ## Licença
 
 Este projeto está licenciado sob a [Licença MIT](LICENSE).
