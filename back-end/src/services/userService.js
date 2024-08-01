@@ -104,7 +104,7 @@ class UserService {
                 { _id: id },
                 { $push: { cart: { product: productId, quantity: 1} } }
             );
-            return "Produto inserido no carrinho com sucesso.";
+            return "Produto adicionado ao carrinho com sucesso.";
         } catch(error) {
             throw error;
         }
